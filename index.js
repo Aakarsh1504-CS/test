@@ -40,12 +40,9 @@ const upload = multer({
 // Register route
 app.post("/register", async (req, res, next) => {
     try {
-        let { email, role } = req.body;
+        console.log("hihihn");
+        let { role } = req.body;
         role = role.trim();
-        email = email.trim();
-
-        const user = await usm.create({ email, role });
-
         if (role === "seeker") res.redirect("/uploadCv");
         else if (role === "employer") res.redirect("/postJob");
     } catch (err) {
@@ -62,9 +59,15 @@ app.get("/profile",  async (req, res, next) => {
 app.post("/uploadCvBy", upload.single("pdf"), async (req, res, next) => {
     try {
         const { name, email, curr_salary, curr_yoe, curr_location, pref_type, skills } = req.body;
-
+        console.log("lll");
+        console.log(req.file);
         if (!req.file) {
             return res.status(400).send("No file uploaded. Please upload a PDF file.");
+        }
+
+        // Check if the file is a PDF
+        if (req.file.mimetype !== 'application/pdf') {
+            return res.status(400).send("Invalid file type. Please upload a PDF file.");
         }
 
         // Find or create user and update details
@@ -104,11 +107,23 @@ app.post("/uploadCvBy", upload.single("pdf"), async (req, res, next) => {
     }
 });
 
+
 // Post job route
-app.post("/postJob", async (req, res, next) => {
+app.post("/postJobByClient", async (req, res, next) => {
     try {
         const { title, email, description, salary, yoe, location, type } = req.body;
 
+        // Validate email format
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+            const error = new Error("Invalid email format. Please provide a valid email.");
+            error.status = 400;
+            throw error;
+        }
+
+        console.log(req.body);
+
+        // Create a job post if validation passes
         await psm.create({
             title,
             email,
@@ -121,9 +136,11 @@ app.post("/postJob", async (req, res, next) => {
 
         res.redirect("/profile");
     } catch (err) {
-        next(err);
+        next(err); // Pass the error to the error handler middleware
     }
 });
+
+
 
 // Render the upload CV page
 app.get("/uploadCv", (req, res, next) => {
@@ -137,10 +154,13 @@ app.get("/postJob", (req, res, next) => {
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.render("error", { err: err.message });
-});
-
+    console.error(err.stack); // Log the error
+    res.status(err.status || 500);
+    res.render("error", {
+        message: err.message || "Something went wrong!",
+        status: err.status || 500,
+    });
+})
 // Start the server
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);

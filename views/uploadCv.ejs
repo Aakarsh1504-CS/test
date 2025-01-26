@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        #main {
+            background-color: rgb(212, 237, 249);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #form-container {
+            background-color: white;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+
+        #form-container h1 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #back-button {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: transparent;
+            border: none;
+            color: #3498db;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="file"],
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="file"],
+        select {
+            background-color: #f7f7f7;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="file"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            #form-container {
+                padding: 15px;
+            }
+
+            #form-container h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="form-container">
+            <button style="position: absolute; left:-250px;top:2" id="back-button" onclick="history.back()">← Back</button>
+            <h1>Enter Your Details</h1>
+            <form id="cv-form" action="/uploadCvBy" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div id="inp" style="display: flex; gap:4px">
+                        <label for="email">Email Address</label> 
+                        <p style="color: red;">*required</p>
+                    </div>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="current-role">Current Role</label>
+                    <input type="text" id="current-role" name="currentRole" placeholder="Enter your current role" required>
+                </div>
+                <div class="form-group">
+                    <label for="skills">Skills</label>
+                    <input type="text" id="skills" name="skills" placeholder="Enter your skills (comma-separated)" required>
+                </div>
+                <div class="form-group">
+                    <label for="experience">Years of Experience</label>
+                    <input type="text" id="experience" name="experience" placeholder="Enter your experience (e.g., 3 years)" required>
+                </div>
+                <div class="form-group">
+                    <label for="salary">Current Salary</label>
+                    <input type="text" id="salary" name="salary" placeholder="Enter your current salary" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location" placeholder="Enter your location" required>
+                </div>
+                <div class="form-group">
+                    <label for="work-type">Work Type Preference</label>
+                    <select id="work-type" name="workType" required>
+                        <option value="" disabled selected>Select work type</option>
+                        <option value="wfh">Work from Home</option>
+                        <option value="onsite">Onsite</option>
+                        <option value="hybrid">Hybrid</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div id="inp" style="display: flex; gap:4px">
+                        <label for="email">Email Address</label> 
+                        <p style="color: red;">*required and only pdf allowed</p>
+                    </div>
+                    <input type="file" id="file" name="file" required>
+                </div>
+                <button type="submit" id="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
