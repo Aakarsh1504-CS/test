@@ -13,7 +13,7 @@
         <div id="page0">
             <div id="nav">
                 <div id="logo">
-                    <a href="/"><img src="" alt="CV Solutions"></a>
+                    <a href="/"><img src="images/ppp.png" alt="CV Solutions"></a>
                 </div>
                 <div id="right-header">
                     <a>Home</a>
@@ -30,7 +30,7 @@
             <div id="left">
                 <div id="data">
                     <div id="letter-animate">
-                        <h3 id="text-container"></h3>
+                        <h3 id="text-container">We Deliver The Best</h3>
                     </div>                    
                     <h1>CV Solutions And Service</h1>
                     <div id="dynamic">
@@ -53,7 +53,7 @@
             </div>
             <div id="right">
                 <div id="image">
-                    <img src="images/hhero1-removebg-preview.png" alt="Hero Image">
+                    <img src="images/job-interview-illustration-2048x1535-tihlz0fr-removebg-preview.png" alt="Hero Image">
                 </div>
             </div>
         </div>
@@ -184,8 +184,7 @@
         <div id="footer">
             <div id="footer-content">
                 <div id="footer-left">
-                    <h2>CV Solutions</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h2>CV Solutions @ <%= new Date().getFullYear() %></h2>
                 </div>
 
             </div>
@@ -225,48 +224,48 @@
 
 
         document.addEventListener("DOMContentLoaded", () => {
-    const text = "We deliver the best";
-    const container = document.getElementById("text-container");
+    // const text = "We deliver the best";
+    // const container = document.getElementById("text-container");
 
-    // Create span elements for each letter
-    const letters = text.split("").map((char) => {
-        const span = document.createElement("span");
-        span.textContent = char === " " ? "\u00A0" : char; // Handle spaces
-        container.appendChild(span);
-        return span;
-    });
+    // // Create span elements for each letter
+    // const letters = text.split("").map((char) => {
+    //     const span = document.createElement("span");
+    //     span.textContent = char === " " ? "\u00A0" : char; // Handle spaces
+    //     container.appendChild(span);
+    //     return span;
+    // });
 
-    const delay = 50; // Delay between letters (ms)
-    const displayDuration = 3000; // Time the full text stays visible (ms)
+    // const delay = 50; // Delay between letters (ms)
+    // const displayDuration = 3000; // Time the full text stays visible (ms)
 
-    const animateText = () => {
-        // Step 1: Animate letters appearing
-        letters.forEach((letter, index) => {
-            setTimeout(() => {
-                letter.classList.add("visible");
-            }, index * delay);
-        });
+    // const animateText = () => {
+    //     // Step 1: Animate letters appearing
+    //     letters.forEach((letter, index) => {
+    //         setTimeout(() => {
+    //             letter.classList.add("visible");
+    //         }, index * delay);
+    //     });
 
-        // Step 2: Animate letters disappearing
-        setTimeout(() => {
-            letters.forEach((letter, index) => {
-                setTimeout(() => {
-                    letter.classList.remove("visible");
-                    letter.classList.add("hidden");
-                }, index * delay);
-            });
-        }, displayDuration);
+    //     // Step 2: Animate letters disappearing
+    //     setTimeout(() => {
+    //         letters.forEach((letter, index) => {
+    //             setTimeout(() => {
+    //                 letter.classList.remove("visible");
+    //                 letter.classList.add("hidden");
+    //             }, index * delay);
+    //         });
+    //     }, displayDuration);
 
-        // Step 3: Reset animation
-        setTimeout(() => {
-            letters.forEach((letter) => {
-                letter.classList.remove("hidden");
-            });
-            animateText(); // Restart the animation
-        }, displayDuration + letters.length * delay +1000);
-    };
+    //     // Step 3: Reset animation
+    //     setTimeout(() => {
+    //         letters.forEach((letter) => {
+    //             letter.classList.remove("hidden");
+    //         });
+    //         animateText(); // Restart the animation
+    //     }, displayDuration + letters.length * delay +1000);
+    // };
 
-    animateText();
+    // animateText();
 });
 
     </script>

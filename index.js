@@ -154,6 +154,22 @@ app.post("/contact", (req, res, next) => {
     let {name , email , message } = req.body;
     message+=` recieved by ${email}`;
     sendMail("New Enquiry Recieved",message,process.env.SEMAIL);
+    const emailBody = `
+  Dear ${name},
+
+  Thank you for getting in touch with us! We appreciate your interest in our services, and we are excited about the opportunity to assist you.
+
+  Our team is currently reviewing your query, and we will get back to you as soon as possible with more details. We understand the importance of your request and are committed to providing you with the best possible solution tailored to your needs.
+
+  In the meantime, please feel free to reach out if you have any questions or need further information. We look forward to working with you and are confident that you'll be pleased with the results of choosing us.
+
+  Best regards,
+  Shivam Rathore
+  Delivery Head
+  CV Solutions
+  9528744397
+`;
+    sendMail("Thank You for Reaching Out to Us!", emailBody,email );
     res.redirect("/");
 })
 

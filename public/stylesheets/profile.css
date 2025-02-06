@@ -21,7 +21,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding:10px;
-    background-color: rgb(127, 206, 245);
+    background-color: rgb(28, 104, 190);
 }
 #nav{
     height: 10vh;
@@ -55,7 +55,7 @@ body {
     margin-right: 3px;
 }
 #page1{
-    height:90vh;
+    height:75vh;
     width: 100%;
     display: flex;
     align-items: center;    
@@ -70,12 +70,13 @@ body {
 #data{
     margin-left: 150px;
     width: 550px;
+    margin-top: -240px;
 }
 #data h3{
     margin-left: -20px;
     font-size: 26px;
     letter-spacing: 2px;
-    margin-bottom: 25px;
+    margin-bottom: -75px;
 }
 #data h1{
     font-size: 45px;
@@ -101,13 +102,17 @@ body {
     flex-direction: column;
     height: 100%;
     text-align: center;
-    background-color: beige;
+    /* background-color: beige; */
     gap: 50px;
 }
 #up-p2{
     height:30vh;
-    padding: 30px;
-    background-color: #fff;
+    padding: 70px;
+    border-radius: 20px;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    background-color: #f4fbfa;
     width: 800px;
 }
 #up-p2 h2{
@@ -122,7 +127,7 @@ body {
 }
 #page3{
     height: 100vh;
-    background-color:rgb(217, 241, 233);
+    background-color:rgb(239, 246, 247);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -187,7 +192,11 @@ body {
     align-items: center;
     gap: 50px;
     padding: 80px;
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
+}
+#logo img{
+    height: 70px;
+    width:70px;
 }
 #up-p4{
     width: 70%;
@@ -357,7 +366,9 @@ body {
     transform: translateY(20px);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
-
+#dynamic .content p{
+    font-size: 20px;
+}
 #dynamic .content.active {
     top: 0;
     opacity: 1;
