@@ -10,7 +10,33 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const port = process.env.port || 3000;
+const nodemailer = require("nodemailer");
 
+// Configure mail transporter
+const transporter = nodemailer.createTransport({
+  service: "gmail", // Change this if using another email provider
+  auth: {
+    user: process.env.EMAIL, // Sender email
+    pass: process.env.PASSWORD, // Use an App Password if using Gmail
+  },
+});
+
+const sendMail = async (subject, message, recipientEmail) => {
+    try {
+      const mailOptions = {
+        from: process.env.EMAIL,
+        to: recipientEmail,
+        subject: subject,
+        text: message,
+      };
+  
+      // Send the email
+      const info = await transporter.sendMail(mailOptions);
+      console.log("Email sent:", info.response);
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
+  };
 // Middleware for cache control
 app.use((req, res, next) => {
     res.set("Cache-Control", "no-store");
@@ -38,54 +64,30 @@ const upload = multer({
 });
 
 // Register route
-app.post("/register", async (req, res, next) => {
-    try {
-        console.log("hihihn");
-        let { role } = req.body;
-        role = role.trim();
-        if (role === "seeker") res.redirect("/uploadCv");
-        else if (role === "employer") res.redirect("/postJob");
-    } catch (err) {
-        next(err);
-    }
-});
+
 
 // Basic landing page
-app.get("/profile",  async (req, res, next) => {
+app.get("/",  async (req, res, next) => {
     res.render("profile");
 });
 
 // Upload CV route
-app.post("/uploadCvBy", upload.single("pdf"), async (req, res, next) => {
+app.post("/uploadCvBy", async (req, res, next) => {
     try {
-        const { name, email, curr_salary, curr_yoe, curr_location, pref_type, skills } = req.body;
-        console.log("lll");
-        console.log(req.file);
-        if (!req.file) {
-            return res.status(400).send("No file uploaded. Please upload a PDF file.");
-        }
-
-        // Check if the file is a PDF
-        if (req.file.mimetype !== 'application/pdf') {
-            return res.status(400).send("Invalid file type. Please upload a PDF file.");
-        }
+        const {  email, curr_salary, curr_yoe, curr_location, pref_type, skills,cv } = req.body;
+        
 
         // Find or create user and update details
         let user = await usm.findOne({ email });
         if (!user) {
             user = new usm({
-                name,
                 email,
                 curr_salary,
                 curr_yoe,
                 curr_location,
                 pref_type,
                 skills,
-                resume: {
-                    data: req.file.buffer,
-                    contentType: req.file.mimetype,
-                    originalName: req.file.originalname,
-                },
+                resume: cv,
             });
         } else {
             user.curr_salary = curr_salary;
@@ -93,15 +95,11 @@ app.post("/uploadCvBy", upload.single("pdf"), async (req, res, next) => {
             user.curr_location = curr_location;
             user.pref_type = pref_type;
             user.skills = skills;
-            user.resume = {
-                data: req.file.buffer,
-                contentType: req.file.mimetype,
-                originalName: req.file.originalname,
-            };
+            user.resume = cv;
         }
 
         await user.save();
-        res.redirect("/profile");
+        res.redirect("/");
     } catch (err) {
         next(err);
     }
@@ -151,6 +149,13 @@ app.get("/uploadCv", (req, res, next) => {
 app.get("/postJob", (req, res, next) => {
     res.render("postJob");
 });
+
+app.post("/contact", (req, res, next) => {
+    let {name , email , message } = req.body;
+    message+=` recieved by ${email}`;
+    sendMail("New Enquiry Recieved",message,process.env.SEMAIL);
+    res.redirect("/");
+})
 
 // Error handling middleware
 app.use((err, req, res, next) => {

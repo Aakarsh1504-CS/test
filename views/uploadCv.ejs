@@ -63,6 +63,7 @@
         input[type="text"],
         input[type="email"],
         input[type="file"],
+        input[type="number"],
         select,
         button {
             width: 100%;
@@ -74,6 +75,7 @@
 
         input[type="text"],
         input[type="email"],
+        input[type="number"],
         input[type="file"],
         select {
             background-color: #f7f7f7;
@@ -82,6 +84,7 @@
         input[type="text"]:focus,
         input[type="email"]:focus,
         input[type="file"]:focus,
+        input[type="number"]:focus,
         select:focus {
             outline: none;
             border-color: #3498db;
@@ -127,7 +130,7 @@
         <div id="form-container">
             <button style="position: absolute; left:-250px;top:2" id="back-button" onclick="history.back()">← Back</button>
             <h1>Enter Your Details</h1>
-            <form id="cv-form" action="/uploadCvBy" method="post" enctype="multipart/form-data">
+            <form id="cv-form" action="/uploadCvBy" method="post">
                 <div class="form-group">
                     <div id="inp" style="display: flex; gap:4px">
                         <label for="email">Email Address</label> 
@@ -145,19 +148,19 @@
                 </div>
                 <div class="form-group">
                     <label for="experience">Years of Experience</label>
-                    <input type="text" id="experience" name="experience" placeholder="Enter your experience (e.g., 3 years)" required>
+                    <input type="number" id="curr_yoe" name="curr_yoe" placeholder="Enter your experience (e.g., 3 years)" required>
                 </div>
                 <div class="form-group">
                     <label for="salary">Current Salary</label>
-                    <input type="text" id="salary" name="salary" placeholder="Enter your current salary" required>
+                    <input type="number" id="curr_salary" name="curr_salary" placeholder="in LPA" required>
                 </div>
                 <div class="form-group">
                     <label for="location">Location</label>
-                    <input type="text" id="location" name="location" placeholder="Enter your location" required>
+                    <input type="text" id="curr_location" name="curr_location" placeholder="Enter your location" required>
                 </div>
                 <div class="form-group">
                     <label for="work-type">Work Type Preference</label>
-                    <select id="work-type" name="workType" required>
+                    <select id="work-type" name="pref_type" required>
                         <option value="" disabled selected>Select work type</option>
                         <option value="wfh">Work from Home</option>
                         <option value="onsite">Onsite</option>
@@ -166,10 +169,10 @@
                 </div>
                 <div class="form-group">
                     <div id="inp" style="display: flex; gap:4px">
-                        <label for="email">Email Address</label> 
-                        <p style="color: red;">*required and only pdf allowed</p>
+                        <label for="email">Resume Link</label> 
+                        <p style="color: red;">*Please give a publicly accessible link</p>
                     </div>
-                    <input type="file" id="file" name="file" required>
+                    <input type="text" id="cv" name="cv" required>
                 </div>
                 <button type="submit" id="submit-btn">Submit</button>
             </form>
