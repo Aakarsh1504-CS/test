@@ -7,9 +7,9 @@ const usm = require("./models/Jobseeker");
 const psm = require("./models/Jobpost");
 const multer = require("multer");
 const dotenv = require("dotenv");
-
+const mongoose = require("mongoose");
 dotenv.config();
-
+mongoose.connect(`${process.env.MONGO_URI}`, { useNewUrlParser: true, useUnifiedTopology: true });
 const port = process.env.port || 3000;
 const nodemailer = require("nodemailer");
 
