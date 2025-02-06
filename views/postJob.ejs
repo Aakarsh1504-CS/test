@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Job</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        #main {
+            background-color: rgb(212, 237, 249);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #form-container {
+            background-color: white;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+
+        #form-container h1 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #back-button {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: transparent;
+            border: none;
+            color: #3498db;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        select,
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        select,
+        textarea {
+            background-color: #f7f7f7;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="form-container">
+            <button style="position: absolute; left:-250px;top:2" id="back-button" onclick="history.back()">&larr; Back</button>
+            <h1>Post a Job</h1>
+            <form id="job-post-form" action="/postJobByClient" method="post">
+                <div class="form-group">
+                    <label for="title">Job Title</label>
+                    <input type="text" id="title" name="title" placeholder="Enter job title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Job Description</label>
+                    <textarea id="description" name="description" rows="5" placeholder="Enter job description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="salary">Salary Offered</label>
+                    <input type="number" id="salary" name="salary" placeholder="Enter salary offered" required>
+                </div>
+                <div class="form-group">
+                    <label for="yoe">Years of Experience</label>
+                    <input type="number" id="yoe" name="yoe" placeholder="Enter required years of experience" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Job Location</label>
+                    <input type="text" id="location" name="location" placeholder="Enter job location" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Job Type</label>
+                    <select id="type" name="type" required>
+                        <option value="" disabled selected>Select job type</option>
+                        <option value="Full-time">Full-time</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Contract">Contract</option>
+                        <option value="Internship">Internship</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div id="inp" style="display: flex; gap:4px">
+                        <label for="email">Email Address</label> 
+                        <p style="color: red;">*required</p>
+                    </div>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <div id="inp" style="display: flex; gap:4px">
+                        <label for="email">Phone Number</label> 
+                        <p style="color: red;">*required</p>
+                    </div>
+                    <input type="number" id="number" name="email" placeholder="Enter your email" required>
+                </div>
+                <button type="submit">Submit Your Requirement</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
