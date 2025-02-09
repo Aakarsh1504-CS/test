@@ -1,0 +1,648 @@
+/* ===================================================== */
+/*                    GENERAL RESET                    */
+/* ===================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Main Container */
+#main {
+    width: 100%;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    /* padding: 0px 0; */
+}
+
+/* ===================================================== */
+/*                     PAGE 0 - HEADER                 */
+/* ===================================================== */
+#page0 {
+    background-color: #005bb5;
+    padding: 10px 20px;
+}
+
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo img {
+    height: 50px;
+    width: auto;
+}
+
+#right-header {
+    display: flex;
+    gap: 15px;
+}
+
+#right-header a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+#right-header a:hover {
+    color: #ffdd57;
+}
+
+#register {
+    display: flex;
+    gap: 10px;
+}
+
+#jobseeker,
+#jobpost {
+    background-color: #ffdd57;
+    color: #005bb5;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+#jobseeker:hover,
+#jobpost:hover {
+    background-color: #ffd633;
+}
+
+/* ===================================================== */
+/*                   PAGE 1 - HERO SECTION             */
+/* ===================================================== */
+#page1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 75vh;
+    padding: 40px 20px;
+    text-align: left;
+}
+
+#left {
+    flex: 1;
+    padding: 20px;
+    max-width: 600px;
+}
+
+#data {
+    margin-bottom: 20px;
+}
+
+#letter-animate {
+    margin-bottom: 10px;
+}
+
+#text-container {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#data h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+/* Dynamic content that cycles */
+#dynamic {
+    position: relative;
+    height: 150px;
+    overflow: hidden;
+}
+
+#dynamic .content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#dynamic .content.active {
+    top: 0;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#dynamic .content.exiting {
+    top: -100%;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+#dynamic .content h4 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+#dynamic .content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+#right {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+#right img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+/* ===================================================== */
+/*              PAGE 2 - IT RECRUITMENT SERVICES         */
+/* ===================================================== */
+#page2 {
+    background-color: #eef;
+    padding: 40px 20px;
+}
+
+#content-p2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+#up-p2 {
+    background-color: #f4fbfa;
+    padding: 30px;
+    border-radius: 10px;
+    width: 60%;
+}
+
+#up-p2 h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#up-p2 p {
+    font-size: 16px;
+}
+
+#down-p2 {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 85%;
+    margin: 0 auto;
+}
+
+#down-p2 > div {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: calc(33.33% - 20px);
+    text-align: center;
+}
+
+#down-p2 > div h2 {
+    font-size: 22px;
+    margin: 15px 0;
+}
+
+#down-p2 > div p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+#down-p2 img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+/* ===================================================== */
+/*           PAGE 3 - HR CONSULTANCY SERVICES          */
+/* ===================================================== */
+#page3 {
+    background-color: #eff6f7;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#up-p3 {
+    text-align: center;
+}
+
+#up-p3 h1 {
+    font-size: 36px;
+}
+
+#down-p3 {
+    display: flex;
+    justify-content: center;
+}
+
+#content-dp3 {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Top row of services */
+#sub-up {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#sub-up > div {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#sub-up #img1, 
+#sub-up #img3 {
+    flex-basis: 30%;
+}
+
+#sub-up #text2 {
+    flex-basis: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#sub-up img {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+#sub-up h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#sub-up p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Bottom row of services */
+#sub-down {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#sub-down > div {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#sub-down #text1, 
+#sub-down #text3 {
+    flex-basis: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#sub-down #img2 {
+    flex-basis: 30%;
+}
+
+#sub-down img {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+#sub-down h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#sub-down p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ===================================================== */
+/*                PAGE 4 - OUR PROCESS                 */
+/* ===================================================== */
+#page4 {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+}
+
+#up-p4 {
+    width: 70%;
+    margin: 0 auto;
+}
+
+#up-p4 h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#up-p4 p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+#down-p4 {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 70%;
+    margin: auto;
+}
+
+#down-p4 > div {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 220px;
+    text-align: center;
+}
+
+#down-p4 h4 {
+    font-size: 20px;
+    margin: 15px 0;
+}
+#img-div {
+    width: 100px;
+}
+img{
+    width: 100%;
+}
+#down-p4 p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+#itxt4, #itxt3,#itxt2,#itxt1{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===================================================== */
+/*                PAGE 5 - CONTACT US                  */
+/* ===================================================== */
+#page5 {
+    background-color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#up-p5 h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+#down-p5 {
+    display: flex;
+    justify-content: center;
+}
+
+#contact-form {
+    background-color: #f7f7f7;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#contact-form button {
+    background-color: #005bb5;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#contact-form button:hover {
+    background-color: #003f80;
+}
+
+/* ===================================================== */
+/*                      FOOTER                         */
+/* ===================================================== */
+#footer {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+#footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#footer-left h2 {
+    font-size: 20px;
+}
+
+/* ===================================================== */
+/*                  RESPONSIVE STYLES                  */
+/* ===================================================== */
+@media (max-width: 1024px) {
+    /* Hero Section */
+    #page1 {
+        flex-direction: column;
+        text-align: center;
+    }
+    #left, #right {
+        width: 100%;
+    }
+    /* Services & Process: full width boxes */
+    #down-p2 > div, #down-p4 > div {
+        width: 100%;
+    }
+    /* Consultancy sections */
+    #sub-up, #sub-down {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    #nav {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+    
+    #right-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    #logo img {
+        height: 40px;
+    }
+    
+    #page1 {
+        padding: 30px 10px;
+    }
+    
+    #data h1 {
+        font-size: 32px;
+    }
+    
+    #text-container {
+        font-size: 20px;
+    }
+    
+    #dynamic .content h4 {
+        font-size: 18px;
+    }
+    
+    #dynamic .content p {
+        font-size: 14px;
+    }
+    
+    #up-p2 {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    #down-p2 {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    #down-p2 > div {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    #content-dp3 {
+        width: 100%;
+    }
+    
+    #sub-up, #sub-down {
+        flex-direction: column;
+    }
+    
+    #down-p4 {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    #down-p4 > div {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    #contact-form {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #nav a {
+        font-size: 14px;
+        margin: 0 5px;
+    }
+    
+    #register a {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+    
+    #data h1 {
+        font-size: 24px;
+    }
+    
+    #text-container {
+        font-size: 18px;
+    }
+    
+    #dynamic .content h4 {
+        font-size: 16px;
+    }
+    
+    #dynamic .content p {
+        font-size: 12px;
+    }
+    
+    #up-p2 h2 {
+        font-size: 24px;
+    }
+    
+    #up-p2 p {
+        font-size: 14px;
+    }
+    
+    #down-p2 > div h2 {
+        font-size: 18px;
+    }
+    
+    #down-p2 > div p {
+        font-size: 12px;
+    }
+    
+    #up-p3 h1 {
+        font-size: 28px;
+    }
+    
+    #sub-up > div, #sub-down > div {
+        padding: 15px;
+    }
+    
+    #down-p4 h4 {
+        font-size: 18px;
+    }
+    
+    #down-p4 p {
+        font-size: 12px;
+    }
+}
