@@ -69,14 +69,14 @@ body {
 }
 #data{
     margin-left: 150px;
-    width: 550px;
-    margin-top: -240px;
+    width: 80%;
+    margin-top: -10%;
 }
 #data h3{
-    margin-left: -20px;
+    margin-left: -2%;
     font-size: 26px;
     letter-spacing: 2px;
-    margin-bottom: -75px;
+    margin-bottom: -5%;
 }
 #data h1{
     font-size: 45px;
@@ -103,7 +103,7 @@ body {
     height: 100%;
     text-align: center;
     /* background-color: beige; */
-    gap: 50px;
+    gap: 10%;
 }
 #up-p2{
     height:30vh;
@@ -113,7 +113,7 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #f4fbfa;
-    width: 800px;
+    width: 60%;
 }
 #up-p2 h2{
     margin-bottom: 15px;
@@ -133,7 +133,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 40px;
-    gap: 90px;
+    gap: 6%;
 }
 #down-p3 #content-dp3{
     display: flex;
@@ -445,4 +445,375 @@ img{
 }
 #i4{
     margin-bottom: -10px;
+}
+@media screen and (max-width: 768px) {
+    #page0, #nav {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 10px;
+    }
+
+    #logo {
+        width: 80%;
+        text-align: center;
+    }
+
+    #right-header {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    #page1 {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    #left {
+        width: 100%;
+        padding: 10px;
+    }
+
+    #data {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    #data h1 {
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    #page2 {
+        height: auto;
+        padding: 20px;
+    }
+
+    #up-p2 {
+        width: 90%;
+        padding: 30px;
+    }
+
+    #down-p2 {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    #page3 {
+        height: auto;
+        padding: 20px;
+        gap: 30px;
+    }
+
+    #sub-up, #sub-down {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    #sub-up #img1, #sub-up #img3, #sub-up #text2, #sub-down #text1, #sub-down #img2, #text3 {
+        width: 90%;
+    }
+
+    #page4 {
+        height: auto;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    #down-p4 {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    #page5 {
+        padding: 30px 10px;
+    }
+
+    #contact-form {
+        width: 90%;
+    }
+
+    #footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #footer-left, #footer-right {
+        margin: 10px 0;
+    }
+
+    #letter-animate {
+        margin-left: 0;
+        height: auto;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 1024px) {
+    #nav {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+    }
+
+    #right-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #logo {
+        width: 80%;
+    }
+
+    #page1 {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    #left {
+        width: 100%;
+        padding: 0;
+    }
+
+    #data {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #data h3, #data h1, #data p {
+        margin-left: 0;
+    }
+
+    #down-p2 {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    #sub-up, #sub-down {
+        flex-direction: column;
+        width: 90%;
+        gap: 20px;
+    }
+
+    #sub-up #img1, #sub-up #img3, #sub-up #text2,
+    #sub-down #text1, #sub-down #img2, #text3 {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #page0 {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+        padding: 15px;
+    }
+
+    #page1 {
+        height: auto;
+    }
+
+    #data {
+        width: 100%;
+    }
+
+    #up-p2 {
+        width: 90%;
+        padding: 30px;
+    }
+
+    #down-p2 {
+        flex-direction: column;
+        gap: 20px;
+        width: 90%;
+    }
+
+    #page3 {
+        height: auto;
+        padding: 20px;
+    }
+
+    #sub-up, #sub-down {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #sub-up #img1, #sub-up #img3, #sub-up #text2,
+    #sub-down #text1, #sub-down #img2, #text3 {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #jobseeker, #jobpost {
+        font-size: small;
+        padding: 5px 10px;
+    }
+
+    #data h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    #data h3 {
+        font-size: 20px;
+    }
+
+    #data p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    #up-p2 {
+        padding: 20px;
+    }
+}@media screen and (max-width: 768px) {
+    #page0 {
+        height: auto;
+        padding: 10px;
+    }
+
+    #nav {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    #right-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #jobseeker, #jobpost {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    #role {
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    #page1 {
+        height: auto;
+        padding: 15px;
+        text-align: center;
+    }
+
+    #data {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #data h3 {
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+
+    #data h1 {
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    #data p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #page0 {
+        padding: 8px;
+    }
+
+    #nav {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    #jobseeker, #jobpost {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    #role {
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    #page1 {
+        height: auto;
+        padding: 10px;
+    }
+
+    #data {
+        width: 95%;
+    }
+
+    #data h3 {
+        font-size: 8px;
+        letter-spacing: 0.5px;
+    }
+
+    #data h1 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    #data p {
+        font-size: 4px;
+        line-height: 16px;
+    }
+}
+@media screen and (max-width: 768px) {
+    #dynamic {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .content {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .content h4 {
+        font-size: 10px;
+    }
+
+    .content p {
+        font-size: 8px;
+        line-height: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #dynamic {
+        padding: 8px;
+    }
+
+    .content {
+        padding: 8px;
+        margin-bottom: 4px;
+    }
+
+    .content h4 {
+        font-size: 8px;
+    }
+
+    .content p {
+        font-size: 7px;
+        line-height: 8px;
+    }
 }
